@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio Website
 
-## Getting Started
+A modern, responsive portfolio website showcasing my work as a Software Engineer, AI/ML Researcher, and Full-Stack Developer.
 
-First, run the development server:
+## ✨ Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Smooth Navigation** - Fixed header with smooth scrolling to all sections
+- **Interactive Animations** - Motion-powered animations and effects using Framer Motion
+- **Responsive Design** - Optimized for all devices and screen sizes
+- **Modern UI** - Clean, dark theme with glassmorphism effects
+- **Typewriter Animation** - Dynamic job title display
+- **Cursor Trail Effect** - Interactive cursor animations
+- **Performance Optimized** - Built with Next.js 15 and modern web technologies
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🏗️ Built With
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Framework**: Next.js 15 with App Router
+- **Styling**: Tailwind CSS with custom animations
+- **Animations**: Framer Motion
+- **Language**: TypeScript
+- **Icons**: Lucide React & React Icons
+- **Deployment**: Vercel
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📄 Sections
 
-## Learn More
+- **Hero** - Introduction with animated typewriter effect
+- **About** - Background, education, and personal information
+- **Experience** - Research and internship positions
+- **Projects** - Featured development projects with live demos
+- **Skills** - Technical proficiencies organized by category
+- **Contact** - Professional contact information and links
 
-To learn more about Next.js, take a look at the following resources:
+## 🎨 Design Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Dark Theme** - Elegant dark color scheme with zinc palette
+- **Glassmorphism** - Modern backdrop blur effects
+- **Smooth Animations** - Staggered entrance animations
+- **Custom Components** - Reusable animated buttons and UI elements
+- **Mobile Responsive** - Seamless experience across all devices
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🚀 Live Demo
 
-## Deploy on Vercel
+Visit the live site at your deployment URL.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+*Built with ❤️ by Cole M. Puls*

@@ -8,12 +8,12 @@ import {
   Phone, 
   MapPin, 
   Calendar,
-  ExternalLink,
   Code,
   Briefcase,
   GraduationCap,
   User,
-  ChevronDown
+  ChevronDown,
+  Download
 } from "lucide-react";
 // Technology icons from react-icons
 import {
@@ -32,21 +32,35 @@ import {
   SiSupabase,
   SiVercel,
   SiExpo,
-  SiSanity
+  SiSanity,
+  SiNodedotjs,
+  SiFlask,
+  SiKotlin,
+  SiSwift,
+  SiHtml5,
+  SiCss3,
+  SiGooglegemini,
+  SiShadcnui
 } from "react-icons/si";
 import { TbBrandReactNative } from "react-icons/tb";
-import { FaJava } from "react-icons/fa";
+import { FaJava, FaBrain, FaTerminal } from "react-icons/fa";
+
+// Enhanced components
+import TypewriterText from "./components/TypewriterText";
+import CursorTrail from "./components/CursorTrail";
+import AnimatedButton from "./components/AnimatedButton";
+import FloatingArrow from "./components/FloatingArrow";
 
 const fadeInUp = {
-  initial: { opacity: 0, y: 60 },
+  initial: { opacity: 0, y: 16 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 }
+  transition: { duration: 0.4, ease: "easeOut" }
 };
 
 const staggerContainer = {
   animate: {
     transition: {
-      staggerChildren: 0.1
+      staggerChildren: 0.08
     }
   }
 };
@@ -56,12 +70,23 @@ export default function Portfolio() {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  // Typewriter text options
+  const jobTitles = [
+    "Software Engineer",
+    "AI/ML Researcher", 
+    "Full-Stack Developer",
+    "Mobile Engineer"
+  ];
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    <div className="min-h-screen bg-[#0a0a0a] relative">
+      {/* Cursor Trail */}
+      <CursorTrail />
+      
       {/* Navigation */}
-              <nav className="fixed top-0 w-full bg-slate-900/90 backdrop-blur-md z-50 border-b border-slate-700">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
+      <nav className="fixed top-0 w-full backdrop-blur-enhanced z-40 border-b border-zinc-800/50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="flex justify-between items-center py-6">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -69,166 +94,199 @@ export default function Portfolio() {
             >
               Cole M. Puls
             </motion.div>
+            
+            {/* Desktop Navigation */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="hidden md:flex space-x-8"
+              className="flex space-x-4 sm:space-x-8"
             >
               {['About', 'Experience', 'Projects', 'Skills', 'Contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
-                  className="text-slate-300 hover:text-white transition-colors"
+                  className="text-zinc-400 hover:text-zinc-200 transition-colors duration-300 font-medium text-sm sm:text-base"
                 >
                   {item}
                 </button>
               ))}
             </motion.div>
+
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center pt-16">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="min-h-screen flex items-center justify-center pt-20 relative z-10">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
           <motion.div
             variants={staggerContainer}
             initial="initial"
             animate="animate"
-            className="space-y-8"
+            className="space-y-12"
           >
+            {/* Enhanced Hero Title */}
             <motion.div
-              variants={fadeInUp}
-              className="space-y-4"
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ 
+                duration: 0.8, 
+                ease: [0.4, 0, 0.2, 1]
+              }}
+              className="space-y-8"
             >
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white">
+              <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold text-white hero-title tracking-tight">
                 Cole M. Puls
               </h1>
-              <p className="text-xl sm:text-2xl text-slate-200">
-                Computer Science Student & Software Engineer
-              </p>
-              <p className="text-lg text-slate-300">
+              
+              {/* Typewriter Effect for Job Titles */}
+              <div className="text-xl sm:text-2xl lg:text-3xl text-zinc-300 min-h-[3rem]">
+                <TypewriterText 
+                  texts={jobTitles}
+                  typingSpeed={100}
+                  deletingSpeed={75}
+                  pauseDuration={3000}
+                  className="font-medium"
+                />
+              </div>
+              
+              <p className="text-lg sm:text-xl text-zinc-400 max-w-3xl mx-auto leading-relaxed">
                 Specializing in AI/ML, Mobile Development & Full-Stack Engineering
               </p>
             </motion.div>
 
+            {/* Enhanced Animated Buttons */}
             <motion.div
-              variants={fadeInUp}
-              className="flex flex-wrap justify-center gap-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.2, duration: 0.6 }}
+              className="flex flex-wrap justify-center gap-6"
             >
-              <a
+              <AnimatedButton
                 href="mailto:colepuls@me.com"
-                className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
+                variant="outline"
+                delay={0.1}
               >
                 <Mail size={20} />
-                <span>Get in Touch</span>
-              </a>
-              <a
+                <span>Email me</span>
+              </AnimatedButton>
+              
+              <AnimatedButton
+                href="/Resume_CP.pdf"
+                download="Cole_Puls_Resume.pdf"
+                variant="outline"
+                delay={0.2}
+              >
+                <Download size={20} />
+                <span>Download Resume</span>
+              </AnimatedButton>
+              
+              <AnimatedButton
                 href="https://github.com/colepuls"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-2 border border-slate-600 text-slate-200 hover:bg-slate-700 hover:text-white px-6 py-3 rounded-lg transition-colors"
+                variant="outline"
+                delay={0.3}
               >
                 <Github size={20} />
                 <span>GitHub</span>
-              </a>
-              <a
+              </AnimatedButton>
+              
+              <AnimatedButton
                 href="https://linkedin.com/in/colepuls"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-2 border border-slate-600 text-slate-200 hover:bg-slate-700 hover:text-white px-6 py-3 rounded-lg transition-colors"
+                variant="outline"
+                delay={0.4}
               >
                 <Linkedin size={20} />
                 <span>LinkedIn</span>
-              </a>
+              </AnimatedButton>
             </motion.div>
 
+            {/* Enhanced Floating Arrow */}
             <motion.div
-              variants={fadeInUp}
-              className="pt-12"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 2, duration: 0.6 }}
+              className="pt-16"
             >
-              <button
+              <FloatingArrow 
                 onClick={() => scrollToSection('about')}
-                className="animate-bounce text-slate-400 hover:text-slate-200 transition-colors"
-              >
-                <ChevronDown size={32} />
-              </button>
+              />
             </motion.div>
           </motion.div>
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-slate-800">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="about" className="section-padding">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 60 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-50px" }}
+            className="text-center mb-20"
           >
-            <div className="flex items-center justify-center mb-4">
-              <User className="text-blue-600 mr-3" size={28} />
-              <h2 className="text-3xl sm:text-4xl font-bold text-white">About Me</h2>
+            <div className="flex items-center justify-center mb-6">
+              <User className="text-[#3f3f46] mr-4" size={32} />
+              <h2 className="text-4xl sm:text-5xl font-bold text-white">About Me</h2>
             </div>
-            <div className="w-24 h-1 bg-blue-600 mx-auto"></div>
+            <div className="w-20 h-1 bg-[#3f3f46] mx-auto rounded-full"></div>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -60 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="space-y-6"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              className="space-y-8"
             >
-              <p className="text-lg text-slate-300 leading-relaxed">
-                I&apos;m a passionate Computer Science student at the University of Missouri with a focus on 
-                Artificial Intelligence, Software Development, and Machine Learning. I love building 
-                innovative solutions that make a real impact.
+              <p className="text-lg text-zinc-300 leading-relaxed">
+                I'm a Computer Science student at Mizzou focused on AI, ML, and software development. I am currently building a mobile sensing app and data pipelines as a Research Assistant.
               </p>
-              <p className="text-lg text-slate-300 leading-relaxed">
-                Currently working as an Undergraduate Research Assistant in AI/ML and Mobile Sensing, 
-                where I develop cutting-edge mobile applications and data pipelines for machine learning research.
+              <p className="text-lg text-zinc-300 leading-relaxed">
+                I'm also a Software Engineering Intern at The Sunrise State, working on a modern news platform using Next.js, Tailwind, Sanity, TypeScript, and Supabase.
               </p>
-              <div className="flex flex-wrap gap-4">
-                <div className="flex items-center space-x-2 text-slate-300">
-                  <MapPin size={16} />
+              <div className="flex flex-wrap gap-6">
+                <div className="flex items-center space-x-3 text-zinc-400">
+                  <MapPin size={18} />
                   <span>Columbia, MO</span>
                 </div>
-                <div className="flex items-center space-x-2 text-slate-300">
-                  <GraduationCap size={16} />
+                <div className="flex items-center space-x-3 text-zinc-400">
+                  <GraduationCap size={18} />
                   <span>Expected May 2027</span>
                 </div>
-                <div className="flex items-center space-x-2 text-slate-300">
-                  <Phone size={16} />
+                <div className="flex items-center space-x-3 text-zinc-400">
+                  <Phone size={18} />
                   <span>(573) 979-4058</span>
                 </div>
               </div>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 60 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="bg-slate-700 p-8 rounded-xl"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+              viewport={{ once: true, margin: "-50px" }}
+              className="card p-10"
             >
-              <h3 className="text-xl font-semibold text-white mb-4">Education</h3>
-              <div className="space-y-4">
+              <h3 className="text-2xl font-semibold text-white mb-8">Education</h3>
+              <div className="space-y-6">
                 <div>
-                  <h4 className="font-medium text-white">University of Missouri - Columbia</h4>
-                  <p className="text-slate-300">B.S in Computer Science</p>
-                  <p className="text-sm text-slate-400">Expected May 2027</p>
+                  <h4 className="font-semibold text-white text-lg">University of Missouri - Columbia</h4>
+                  <p className="text-zinc-300 font-medium">B.S in Computer Science</p>
+                  <p className="text-sm text-zinc-500">Expected May 2027</p>
                 </div>
                 <div>
-                  <h4 className="font-medium text-white">Concentrations:</h4>
-                  <p className="text-slate-300">Artificial Intelligence, Software Development, Machine Learning</p>
+                  <h4 className="font-semibold text-white">Concentrations:</h4>
+                  <p className="text-zinc-300">Artificial Intelligence, Software Development, Machine Learning</p>
                 </div>
                 <div>
-                  <h4 className="font-medium text-white">Relevant Coursework:</h4>
-                  <p className="text-slate-300">Data Structures & Algorithms, Object-Oriented Design, Neural Networks, Databases</p>
+                  <h4 className="font-semibold text-white">Relevant Coursework:</h4>
+                  <p className="text-zinc-300">Data Structures & Algorithms, Object-Oriented Design, Neural Networks, Databases</p>
                 </div>
               </div>
             </motion.div>
@@ -237,84 +295,81 @@ export default function Portfolio() {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-20 bg-slate-900">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="experience" className="section-padding bg-zinc-950">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 60 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-50px" }}
+            className="text-center mb-20"
           >
-            <div className="flex items-center justify-center mb-4">
-              <Briefcase className="text-blue-600 mr-3" size={28} />
-              <h2 className="text-3xl sm:text-4xl font-bold text-white">Experience</h2>
+            <div className="flex items-center justify-center mb-6">
+              <Briefcase className="text-[#3f3f46] mr-4" size={32} />
+              <h2 className="text-4xl sm:text-5xl font-bold text-white">Experience</h2>
             </div>
-            <div className="w-24 h-1 bg-blue-600 mx-auto"></div>
+            <div className="w-20 h-1 bg-[#3f3f46] mx-auto rounded-full"></div>
           </motion.div>
 
-          <div className="space-y-8">
+          <div className="space-y-12">
             {/* Research Assistant */}
             <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="bg-slate-800 p-8 rounded-xl shadow-lg"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-30px" }}
+              className="card p-10"
             >
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
                 <div>
-                  <h3 className="text-xl font-semibold text-white">Undergraduate Research Assistant</h3>
-                  <p className="text-blue-400 font-medium">AI/ML and Mobile Sensing Research</p>
+                  <h3 className="text-2xl font-semibold text-white">Undergraduate Research Assistant</h3>
+                  <p className="text-zinc-300 font-medium text-lg">AI/ML and Mobile Sensing Research</p>
                 </div>
-                <div className="flex items-center text-slate-400 text-sm">
-                  <Calendar size={16} className="mr-1" />
+                <div className="flex items-center text-zinc-400 text-sm mt-2 sm:mt-0">
+                  <Calendar size={16} className="mr-2" />
                   <span>June 2025 - Present</span>
                 </div>
               </div>
-              <div className="space-y-2 text-slate-300">
-                <p className="flex items-start"><span className="text-blue-400 mr-2">•</span>Built iOS mobile sensing app for collecting passive sensor data (accelerometer, gyroscope, behavior patterns)</p>
-                <p className="flex items-start"><span className="text-blue-400 mr-2">•</span>Designed real-time data pipeline for training AI models</p>
-                <p className="flex items-start"><span className="text-blue-400 mr-2">•</span>Implemented secure auth and background uploads for longitudinal ML studies</p>
+              <div className="space-y-3 text-zinc-300 mb-6">
+                <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Built iOS mobile sensing app for collecting passive sensor data (accelerometer, gyroscope, behavior patterns)</p>
+                <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Designed real-time data pipeline for training AI models</p>
+                <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Implemented secure auth and background uploads for longitudinal ML studies</p>
               </div>
-              <div className="flex flex-wrap gap-2 mt-4">
-                {['Kotlin Multiplatform', 'SwiftUI', 'AI/ML Research'].map((tech) => (
-                  <span key={tech} className="px-3 py-1 bg-blue-900 text-blue-200 text-sm rounded-full">
-                    {tech}
-                  </span>
-                ))}
+              <div className="flex flex-wrap gap-4">
+                <SiKotlin className="text-purple-400 text-3xl" title="Kotlin Multiplatform" />
+                <SiSwift className="text-orange-400 text-3xl" title="SwiftUI" />
               </div>
             </motion.div>
 
             {/* Software Engineering Intern */}
             <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="bg-slate-800 p-8 rounded-xl shadow-lg"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+              viewport={{ once: true, margin: "-30px" }}
+              className="card p-10"
             >
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
                 <div>
-                  <h3 className="text-xl font-semibold text-white">Software Engineering Intern</h3>
-                  <p className="text-blue-400 font-medium">The Sunrise State (Remote)</p>
+                  <h3 className="text-2xl font-semibold text-white">Software Engineering Intern</h3>
+                  <p className="text-zinc-300 font-medium text-lg">The Sunrise State (Remote)</p>
                 </div>
-                <div className="flex items-center text-slate-400 text-sm">
-                  <Calendar size={16} className="mr-1" />
+                <div className="flex items-center text-zinc-400 text-sm mt-2 sm:mt-0">
+                  <Calendar size={16} className="mr-2" />
                   <span>May 2025 - Present</span>
                 </div>
               </div>
-              <div className="space-y-2 text-slate-300">
-                <p className="flex items-start"><span className="text-blue-400 mr-2">•</span>Integrated headless CMS using Sanity Studio and Content Lake APIs</p>
-                <p className="flex items-start"><span className="text-blue-400 mr-2">•</span>Built newsletter + auth system with Auth.js, Resend, Supabase</p>
-                <p className="flex items-start"><span className="text-blue-400 mr-2">•</span>Collaborated using Vercel, GitHub, and Plane.so</p>
+              <div className="space-y-3 text-zinc-300 mb-6">
+                <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Integrated headless CMS using Sanity Studio and Content Lake APIs</p>
+                <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Built newsletter + auth system with Auth.js, Resend, Supabase</p>
+                <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Collaborated using Vercel, GitHub, and Plane.so</p>
               </div>
-              <div className="flex flex-wrap gap-2 mt-4">
-                {['Next.js', 'Tailwind CSS', 'Sanity', 'TypeScript', 'Supabase'].map((tech) => (
-                  <span key={tech} className="px-3 py-1 bg-blue-900 text-blue-200 text-sm rounded-full">
-                    {tech}
-                  </span>
-                ))}
+              <div className="flex flex-wrap gap-4">
+                <SiNextdotjs className="text-white text-3xl" title="Next.js" />
+                                  <SiTailwindcss className="text-cyan-300 text-3xl" title="Tailwind CSS" />
+                <SiSanity className="text-red-500 text-3xl" title="Sanity" />
+                <SiTypescript className="text-blue-500 text-3xl" title="TypeScript" />
+                <SiSupabase className="text-green-400 text-3xl" title="Supabase" />
               </div>
             </motion.div>
           </div>
@@ -322,262 +377,255 @@ export default function Portfolio() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 bg-slate-800">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="projects" className="section-padding">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 60 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-50px" }}
+            className="text-center mb-20"
           >
-            <div className="flex items-center justify-center mb-4">
-              <Code className="text-blue-400 mr-3" size={28} />
-              <h2 className="text-3xl sm:text-4xl font-bold text-white">Projects</h2>
+            <div className="flex items-center justify-center mb-6">
+              <Code className="text-[#3f3f46] mr-4" size={32} />
+              <h2 className="text-4xl sm:text-5xl font-bold text-white">Projects</h2>
             </div>
-            <div className="w-24 h-1 bg-blue-400 mx-auto"></div>
+            <div className="w-20 h-1 bg-[#3f3f46] mx-auto rounded-full"></div>
           </motion.div>
 
-          <motion.div 
-            className="grid md:grid-cols-2 gap-8"
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-          >
+          <div className="grid md:grid-cols-2 gap-10">
+          
             {/* Foreman Logging App */}
             <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="group bg-gradient-to-br from-slate-700 to-slate-800 p-8 rounded-xl shadow-lg hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-200 border border-slate-600 hover:border-blue-400"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-20px" }}
+              className="card p-10"
             >
-              <div className="flex items-start justify-between mb-4">
-                <h3 className="text-xl font-semibold text-white group-hover:text-blue-300 transition-colors">Foreman Logging App</h3>
+              <div className="flex items-start justify-between mb-6">
+                <h3 className="text-2xl font-semibold text-white">Foreman Logging App</h3>
                 <a
                   href="https://github.com/colepuls/Langford-Log-App"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-slate-400 hover:text-blue-300 transition-colors duration-200"
+                  className="text-zinc-400 hover:text-zinc-200 transition-colors duration-300"
                 >
-                  <ExternalLink size={20} />
+                  <Github size={24} />
                 </a>
               </div>
-              <p className="text-slate-300 mb-4">
+              <p className="text-zinc-300 mb-6 text-lg leading-relaxed">
                 Cross-platform mobile app for foremen to log job activities, hours, and photos at Langford Mechanical & Sheet Metal, INC.
               </p>
-              <div className="space-y-2 text-sm text-slate-300 mb-4">
-                <p className="flex items-start"><span className="text-blue-400 mr-2">•</span>Firebase Auth + Firestore for real-time data sync</p>
-                <p className="flex items-start"><span className="text-blue-400 mr-2">•</span>REST API with secure image upload and automated email delivery</p>
-                <p className="flex items-start"><span className="text-blue-400 mr-2">•</span>Built with Express.js, Multer, and Nodemailer</p>
+              <div className="space-y-3 text-zinc-300 mb-8">
+                <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Firebase Auth + Firestore for real-time data sync</p>
+                <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>REST API with secure image upload and automated email delivery</p>
+                <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Built with Express.js, Multer, and Nodemailer</p>
               </div>
-              <div className="flex flex-wrap gap-2">
-                {['React Native', 'Expo', 'Firebase', 'Node.js'].map((tech) => (
-                  <span key={tech} className="px-3 py-1 bg-blue-900/50 text-blue-200 text-xs rounded-full border border-blue-700 hover:bg-blue-800/50 transition-colors">
-                    {tech}
-                  </span>
-                ))}
+              <div className="flex flex-wrap gap-4 mb-4">
+                <TbBrandReactNative className="text-cyan-500 text-3xl" title="React Native" />
+                <SiExpo className="text-white text-3xl" title="Expo" />
+                <SiFirebase className="text-yellow-400 text-3xl" title="Firebase" />
+                <SiNodedotjs className="text-green-400 text-3xl" title="Node.js" />
               </div>
-              <p className="text-xs text-slate-500 mt-4">May 2025 - July 2025</p>
+              <p className="text-sm text-zinc-500">May 2025 - July 2025</p>
             </motion.div>
 
             {/* Dream Keeper */}
             <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="group bg-gradient-to-br from-slate-700 to-slate-800 p-8 rounded-xl shadow-lg hover:shadow-xl hover:shadow-green-500/20 transition-all duration-200 border border-slate-600 hover:border-green-400"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+              viewport={{ once: true, margin: "-20px" }}
+              className="card p-10"
             >
-              <div className="flex items-start justify-between mb-4">
-                <h3 className="text-xl font-semibold text-white group-hover:text-green-300 transition-colors">Dream Keeper</h3>
+              <div className="flex items-start justify-between mb-6">
+                <h3 className="text-2xl font-semibold text-white">Dream Keeper</h3>
                 <a
                   href="https://github.com/colepuls/DK-App"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-slate-400 hover:text-green-300 transition-colors duration-200"
+                  className="text-zinc-400 hover:text-zinc-200 transition-colors duration-300"
                 >
-                  <ExternalLink size={20} />
+                  <Github size={24} />
                 </a>
               </div>
-              <p className="text-slate-300 mb-4">
+              <p className="text-zinc-300 mb-6 text-lg leading-relaxed">
                 AI-enhanced mobile app for dream journaling with Gemini-powered mood analysis and interactive chat features.
               </p>
-              <div className="space-y-2 text-sm text-slate-300 mb-4">
-                <p className="flex items-start"><span className="text-green-400 mr-2">•</span>Speech-to-text with animated UI and gesture-based navigation</p>
-                <p className="flex items-start"><span className="text-green-400 mr-2">•</span>Backend with Express.js and async storage</p>
-                <p className="flex items-start"><span className="text-green-400 mr-2">•</span>Interactive charts and AI mood analysis</p>
+              <div className="space-y-3 text-zinc-300 mb-8">
+                <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Speech-to-text with animated UI and gesture-based navigation</p>
+                <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Backend with Express.js and async storage</p>
+                <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Interactive charts and AI mood analysis</p>
               </div>
-              <div className="flex flex-wrap gap-2">
-                {['React Native', 'Expo', 'Node.js', 'Google Gemini API'].map((tech) => (
-                  <span key={tech} className="px-3 py-1 bg-green-900/50 text-green-200 text-xs rounded-full border border-green-700 hover:bg-green-800/50 transition-colors">
-                    {tech}
-                  </span>
-                ))}
+              <div className="flex flex-wrap gap-4 mb-4">
+                <TbBrandReactNative className="text-cyan-500 text-3xl" title="React Native" />
+                <SiExpo className="text-white text-3xl" title="Expo" />
+                <SiNodedotjs className="text-green-400 text-3xl" title="Node.js" />
+                <SiGooglegemini className="text-blue-400 text-3xl" title="Google Gemini API" />
               </div>
-              <p className="text-xs text-slate-500 mt-4">Mar 2025 - Present</p>
+              <p className="text-sm text-zinc-500">Mar 2025 - Present</p>
             </motion.div>
 
             {/* Formatly */}
             <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="group bg-gradient-to-br from-slate-700 to-slate-800 p-8 rounded-xl shadow-lg hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-200 border border-slate-600 hover:border-purple-400"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+              viewport={{ once: true, margin: "-20px" }}
+              className="card p-10"
             >
-              <div className="flex items-start justify-between mb-4">
-                <h3 className="text-xl font-semibold text-white group-hover:text-purple-300 transition-colors">Formatly - Universal Image Format Converter</h3>
+              <div className="flex items-start justify-between mb-6">
+                <h3 className="text-2xl font-semibold text-white">Formatly</h3>
                 <a
                   href="https://github.com/colepuls/Formatly"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-slate-400 hover:text-purple-300 transition-colors duration-200"
+                  className="text-zinc-400 hover:text-zinc-200 transition-colors duration-300"
                 >
-                  <ExternalLink size={20} />
+                  <Github size={24} />
                 </a>
               </div>
-              <p className="text-slate-300 mb-4">
-                Web application supporting 27+ image formats including HEIC, RAW, PSD, EXR, SVG, and PDF with dual-engine conversion system.
+              <p className="text-zinc-300 mb-6 text-lg leading-relaxed">
+                Universal image format converter web application supporting 27+ image formats including HEIC, RAW, PSD, EXR, SVG, and PDF with dual-engine conversion system.
               </p>
-              <div className="space-y-2 text-sm text-slate-300 mb-4">
-                <p className="flex items-start"><span className="text-purple-400 mr-2">•</span>Dual-engine conversion using Pillow for common formats and ImageMagick for advanced formats</p>
-                <p className="flex items-start"><span className="text-purple-400 mr-2">•</span>Drag-and-drop interface with automatic format detection and error handling</p>
-                <p className="flex items-start"><span className="text-purple-400 mr-2">•</span>Production-ready deployment with REST API endpoints and 16MB file upload support</p>
+              <div className="space-y-3 text-zinc-300 mb-8">
+                <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Dual-engine conversion using Pillow for common formats and ImageMagick for advanced formats</p>
+                <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Drag-and-drop interface with automatic format detection and error handling</p>
+                <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Production-ready deployment with REST API endpoints and 16MB file upload support</p>
               </div>
-              <div className="flex flex-wrap gap-2">
-                {['Python', 'Flask', 'Pillow', 'ImageMagick', 'HTML/CSS', 'Gunicorn'].map((tech) => (
-                  <span key={tech} className="px-3 py-1 bg-purple-900/50 text-purple-200 text-xs rounded-full border border-purple-700 hover:bg-purple-800/50 transition-colors">
-                    {tech}
-                  </span>
-                ))}
+              <div className="flex flex-wrap gap-4 mb-4">
+                <SiPython className="text-blue-400 text-3xl" title="Python" />
+                <SiFlask className="text-white text-3xl" title="Flask" />
+                <SiHtml5 className="text-orange-400 text-3xl" title="HTML" />
+                <SiCss3 className="text-blue-500 text-3xl" title="CSS" />
               </div>
-              <p className="text-xs text-slate-500 mt-4">June 2025</p>
+              <p className="text-sm text-zinc-500">June 2025</p>
             </motion.div>
 
             {/* Diabetes Risk Classifier */}
             <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="group bg-gradient-to-br from-slate-700 to-slate-800 p-8 rounded-xl shadow-lg hover:shadow-xl hover:shadow-orange-500/20 transition-all duration-200 border border-slate-600 hover:border-orange-400"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
+              viewport={{ once: true, margin: "-20px" }}
+              className="card p-10"
             >
-              <div className="flex items-start justify-between mb-4">
-                <h3 className="text-xl font-semibold text-white group-hover:text-orange-300 transition-colors">Diabetes Risk Classifier - Mizzou Hackathon 2025</h3>
+              <div className="flex items-start justify-between mb-6">
+                <h3 className="text-2xl font-semibold text-white">Diabetes Risk Classifier</h3>
                 <a
                   href="https://github.com/colepuls/DiabetesPatientPredictor"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-slate-400 hover:text-orange-300 transition-colors duration-200"
+                  className="text-zinc-400 hover:text-zinc-200 transition-colors duration-300"
                 >
-                  <ExternalLink size={20} />
+                  <Github size={24} />
                 </a>
               </div>
-              <p className="text-slate-300 mb-4">
-                Multi-layer neural network with dropout for binary classification of clinical diabetes risk, built during a 72-hour hackathon.
+              <p className="text-zinc-300 mb-6 text-lg leading-relaxed">
+                Multi-layer neural network with dropout for binary classification of clinical diabetes risk, built during Mizzou Hackathon 2025 in a 72-hour timeframe.
               </p>
-              <div className="grid md:grid-cols-2 gap-4 text-sm text-slate-300 mb-4">
-                <div className="space-y-2">
-                  <p className="flex items-start"><span className="text-orange-400 mr-2">•</span>Preprocessed real patient data with normalization and imputation</p>
-                  <p className="flex items-start"><span className="text-orange-400 mr-2">•</span>Boosted model accuracy by 18% through data optimization</p>
+              <div className="grid md:grid-cols-2 gap-6 text-zinc-300 mb-8">
+                <div className="space-y-3">
+                  <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Preprocessed real patient data with normalization and imputation</p>
+                  <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Boosted model accuracy by 18% through data optimization</p>
                 </div>
-                <div className="space-y-2">
-                  <p className="flex items-start"><span className="text-orange-400 mr-2">•</span>Designed CLI interface with probability scores and interpretability</p>
-                  <p className="flex items-start"><span className="text-orange-400 mr-2">•</span>Led 3-person team, delivering full ML pipeline in under 72 hours</p>
+                <div className="space-y-3">
+                  <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Designed CLI interface with probability scores and interpretability</p>
+                  <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Led 3-person team, delivering full ML pipeline in under 72 hours</p>
                 </div>
               </div>
-              <div className="flex flex-wrap gap-2">
-                {['Python', 'PyTorch', 'CLI App', 'Machine Learning'].map((tech) => (
-                  <span key={tech} className="px-3 py-1 bg-orange-900/50 text-orange-200 text-xs rounded-full border border-orange-700 hover:bg-orange-800/50 transition-colors">
-                    {tech}
-                  </span>
-                ))}
+              <div className="flex flex-wrap gap-4 mb-4">
+                <SiPython className="text-blue-400 text-3xl" title="Python" />
+                <SiPytorch className="text-orange-400 text-3xl" title="PyTorch" />
+                <FaTerminal className="text-zinc-400 text-3xl" title="CLI App" />
               </div>
-              <p className="text-xs text-slate-500 mt-4">Feb 2025</p>
+              <p className="text-sm text-zinc-500">Feb 2025</p>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 bg-slate-900">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="skills" className="section-padding bg-zinc-950">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 60 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-50px" }}
+            className="text-center mb-20"
           >
-            <div className="flex items-center justify-center mb-4">
-              <Code className="text-blue-400 mr-3" size={28} />
-              <h2 className="text-3xl sm:text-4xl font-bold text-white">Technical Skills</h2>
+            <div className="flex items-center justify-center mb-6">
+              <Code className="text-[#3f3f46] mr-4" size={32} />
+              <h2 className="text-4xl sm:text-5xl font-bold text-white">Technical Skills</h2>
             </div>
-            <div className="w-24 h-1 bg-blue-400 mx-auto"></div>
+            <div className="w-20 h-1 bg-[#3f3f46] mx-auto rounded-full"></div>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-10">
             <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="bg-slate-800 p-8 rounded-xl text-center"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-30px" }}
+              className="card p-10 text-center"
             >
-              <h3 className="text-xl font-semibold text-white mb-6">Languages</h3>
-              <div className="space-y-4">
+              <h3 className="text-2xl font-semibold text-white mb-8">Languages</h3>
+              <div className="space-y-6">
                 {[
                   { name: 'Python', icon: SiPython, color: 'text-blue-400' },
                   { name: 'JavaScript', icon: SiJavascript, color: 'text-yellow-400' },
                   { name: 'TypeScript', icon: SiTypescript, color: 'text-blue-500' },
                   { name: 'Java', icon: FaJava, color: 'text-orange-400' },
+                  { name: 'Kotlin', icon: SiKotlin, color: 'text-purple-400' },
                   { name: 'C', icon: SiC, color: 'text-blue-600' },
                   { name: 'C++', icon: SiCplusplus, color: 'text-blue-500' }
                 ].map((skill) => (
-                  <div key={skill.name} className="flex items-center space-x-3">
-                    <skill.icon className={`${skill.color} text-2xl flex-shrink-0`} />
-                    <span className="text-slate-300 text-left">{skill.name}</span>
+                  <div key={skill.name} className="flex items-center space-x-4">
+                    <skill.icon className={`${skill.color} text-3xl flex-shrink-0`} />
+                    <span className="text-zinc-300 text-lg text-left">{skill.name}</span>
                   </div>
                 ))}
               </div>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="bg-slate-800 p-8 rounded-xl text-center"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+              viewport={{ once: true, margin: "-30px" }}
+              className="card p-10 text-center"
             >
-              <h3 className="text-xl font-semibold text-white mb-6">Frameworks</h3>
-              <div className="space-y-4">
+              <h3 className="text-2xl font-semibold text-white mb-8">Frameworks</h3>
+              <div className="space-y-6">
                 {[
                   { name: 'React', icon: SiReact, color: 'text-cyan-400' },
                   { name: 'React Native', icon: TbBrandReactNative, color: 'text-cyan-500' },
                   { name: 'Next.js', icon: SiNextdotjs, color: 'text-white' },
-                  { name: 'Express', icon: SiExpress, color: 'text-gray-400' },
+                  { name: 'SwiftUI', icon: SiSwift, color: 'text-orange-400' },
+                  { name: 'Express', icon: SiExpress, color: 'text-zinc-400' },
                   { name: 'PyTorch', icon: SiPytorch, color: 'text-orange-400' },
-                  { name: 'Tailwind CSS', icon: SiTailwindcss, color: 'text-cyan-300' }
+                  { name: 'Tailwind CSS', icon: SiTailwindcss, color: 'text-cyan-300' },
+                  { name: 'shadcn/ui', icon: SiShadcnui, color: 'text-white' }
                 ].map((skill) => (
-                  <div key={skill.name} className="flex items-center space-x-3">
-                    <skill.icon className={`${skill.color} text-2xl flex-shrink-0`} />
-                    <span className="text-slate-300 text-left">{skill.name}</span>
+                  <div key={skill.name} className="flex items-center space-x-4">
+                    <skill.icon className={`${skill.color} text-3xl flex-shrink-0`} />
+                    <span className="text-zinc-300 text-lg text-left">{skill.name}</span>
                   </div>
                 ))}
               </div>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="bg-slate-800 p-8 rounded-xl text-center"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+              viewport={{ once: true, margin: "-30px" }}
+              className="card p-10 text-center"
             >
-              <h3 className="text-xl font-semibold text-white mb-6">Tools & Platforms</h3>
-              <div className="space-y-4">
+              <h3 className="text-2xl font-semibold text-white mb-8">Tools & Platforms</h3>
+              <div className="space-y-6">
                 {[
                   { name: 'Git', icon: SiGit, color: 'text-red-400' },
                   { name: 'Firebase', icon: SiFirebase, color: 'text-yellow-400' },
@@ -586,9 +634,9 @@ export default function Portfolio() {
                   { name: 'Sanity', icon: SiSanity, color: 'text-red-500' },
                   { name: 'Expo', icon: SiExpo, color: 'text-white' }
                 ].map((skill) => (
-                  <div key={skill.name} className="flex items-center space-x-3">
-                    <skill.icon className={`${skill.color} text-2xl flex-shrink-0`} />
-                    <span className="text-slate-300 text-left">{skill.name}</span>
+                  <div key={skill.name} className="flex items-center space-x-4">
+                    <skill.icon className={`${skill.color} text-3xl flex-shrink-0`} />
+                    <span className="text-zinc-300 text-lg text-left">{skill.name}</span>
                   </div>
                 ))}
               </div>
@@ -598,67 +646,75 @@ export default function Portfolio() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-slate-800">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="contact" className="section-padding">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 60 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-50px" }}
+            className="text-center mb-20"
           >
-            <div className="flex items-center justify-center mb-4">
-              <Mail className="text-blue-400 mr-3" size={28} />
-              <h2 className="text-3xl sm:text-4xl font-bold text-white">Get In Touch</h2>
+            <div className="flex items-center justify-center mb-6">
+              <Mail className="text-[#3f3f46] mr-4" size={32} />
+              <h2 className="text-4xl sm:text-5xl font-bold text-white">Get In Touch</h2>
             </div>
-            <div className="w-24 h-1 bg-blue-400 mx-auto"></div>
+            <div className="w-20 h-1 bg-[#3f3f46] mx-auto rounded-full"></div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="max-w-2xl mx-auto text-center"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-30px" }}
+            className="max-w-4xl mx-auto text-center"
           >
-            <p className="text-lg text-slate-300 mb-8">
-              I&apos;m always interested in discussing new opportunities, collaborations, or just connecting with fellow developers. 
+            <p className="text-xl text-zinc-300 mb-12 leading-relaxed">
+              I'm always interested in discussing new opportunities, collaborations, or just connecting with fellow developers. 
               Feel free to reach out!
             </p>
 
-            <div className="grid sm:grid-cols-2 gap-6 mb-8">
+            <div className="grid sm:grid-cols-3 gap-8 mb-12">
               <a
                 href="mailto:colepuls@me.com"
-                className="flex items-center justify-center space-x-3 bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-lg transition-colors"
+                className="flex items-center justify-center gap-4 border border-zinc-700 text-zinc-300 hover:bg-zinc-800 hover:border-zinc-600 hover:text-white p-6 rounded-lg transition-all duration-300 hover:scale-105"
               >
-                <Mail size={20} />
-                <span>colepuls@me.com</span>
+                <Mail size={24} />
+                <span className="font-medium">colepuls@me.com</span>
+              </a>
+              <a
+                href="/Resume_CP.pdf"
+                download="Cole_Puls_Resume.pdf"
+                className="flex items-center justify-center gap-4 border border-zinc-700 text-zinc-300 hover:bg-zinc-800 hover:border-zinc-600 hover:text-white p-6 rounded-lg transition-all duration-300 hover:scale-105"
+              >
+                <Download size={24} />
+                <span className="font-medium">Download Resume</span>
               </a>
               <a
                 href="tel:573-979-4058"
-                className="flex items-center justify-center space-x-3 border border-slate-600 text-slate-300 hover:bg-slate-700 hover:text-white p-4 rounded-lg transition-colors"
+                className="flex items-center justify-center gap-4 border border-zinc-700 text-zinc-300 hover:bg-zinc-800 hover:border-zinc-600 hover:text-white p-6 rounded-lg transition-all duration-300 hover:scale-105"
               >
-                <Phone size={20} />
-                <span>(573) 979-4058</span>
+                <Phone size={24} />
+                <span className="font-medium">(573) 979-4058</span>
               </a>
             </div>
 
-            <div className="flex justify-center space-x-6">
+            <div className="flex justify-center space-x-8">
               <a
                 href="https://github.com/colepuls"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-400 hover:text-slate-200 transition-colors"
+                className="text-zinc-400 hover:text-zinc-200 transition-colors duration-300"
               >
-                <Github size={24} />
+                <Github size={32} />
               </a>
               <a
                 href="https://linkedin.com/in/colepuls"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-400 hover:text-slate-200 transition-colors"
+                className="text-zinc-400 hover:text-zinc-200 transition-colors duration-300"
               >
-                <Linkedin size={24} />
+                <Linkedin size={32} />
               </a>
             </div>
           </motion.div>
@@ -666,10 +722,10 @@ export default function Portfolio() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-900 text-white py-8">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-slate-400">
-            © 2025 Cole M. Puls. Built with Next.js and Tailwind CSS.
+      <footer className="bg-zinc-950/80 text-white py-12 border-t border-zinc-800/50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+          <p className="text-zinc-400 text-lg">
+            © 2025 Cole M. Puls
           </p>
         </div>
       </footer>
