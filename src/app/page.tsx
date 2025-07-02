@@ -184,7 +184,7 @@ export default function Portfolio() {
               className="space-y-6"
             >
               <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-                I'm a passionate Computer Science student at the University of Missouri with a focus on 
+                I&apos;m a passionate Computer Science student at the University of Missouri with a focus on 
                 Artificial Intelligence, Software Development, and Machine Learning. I love building 
                 innovative solutions that make a real impact.
               </p>
@@ -616,7 +616,7 @@ export default function Portfolio() {
             className="max-w-2xl mx-auto text-center"
           >
             <p className="text-lg text-slate-600 dark:text-slate-300 mb-8">
-              I'm always interested in discussing new opportunities, collaborations, or just connecting with fellow developers. 
+              I&apos;m always interested in discussing new opportunities, collaborations, or just connecting with fellow developers. 
               Feel free to reach out!
             </p>
 
