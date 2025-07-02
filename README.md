@@ -2,46 +2,43 @@
 
 A modern, responsive portfolio website showcasing my work as a Software Engineer, AI/ML Researcher, and Full-Stack Developer.
 
-## ✨ Features
+![Next.js](https://img.shields.io/badge/Next.js-15.1.3-black?style=for-the-badge&logo=next.js)
+![React](https://img.shields.io/badge/React-19.0.0-blue?style=for-the-badge&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.6.3-blue?style=for-the-badge&logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.4.17-06B6D4?style=for-the-badge&logo=tailwindcss)
 
-- **Smooth Navigation** - Fixed header with smooth scrolling to all sections
-- **Interactive Animations** - Motion-powered animations and effects using Framer Motion
-- **Responsive Design** - Optimized for all devices and screen sizes
-- **Modern UI** - Clean, dark theme with glassmorphism effects
-- **Typewriter Animation** - Dynamic job title display
-- **Cursor Trail Effect** - Interactive cursor animations
-- **Performance Optimized** - Built with Next.js 15 and modern web technologies
+## Features
 
-## 🏗️ Built With
+- Smooth navigation header with scrolling to all sections
+- Interactive animations and motion effects using Framer Motion
+- Responsive design optimized for all devices
+- Modern dark theme with glassmorphism effects
+- Typewriter animation for dynamic job title display
+- Cursor trail effects and interactive animations
+- Professional sections: About, Experience, Projects, Skills, Contact
+- Downloadable resume and social media links
+- Performance optimized with Next.js App Router
 
-- **Framework**: Next.js 15 with App Router
-- **Styling**: Tailwind CSS with custom animations
-- **Animations**: Framer Motion
-- **Language**: TypeScript
-- **Icons**: Lucide React & React Icons
-- **Deployment**: Vercel
+## Screenshots
 
-## 📄 Sections
+<div align="center">
+  <img src="ss/Screenshot 2025-07-02 at 12.20.36 PM.png" width="600" alt="Portfolio Homepage"/>
+</div>
 
-- **Hero** - Introduction with animated typewriter effect
-- **About** - Background, education, and personal information
-- **Experience** - Research and internship positions
-- **Projects** - Featured development projects with live demos
-- **Skills** - Technical proficiencies organized by category
-- **Contact** - Professional contact information and links
+<div align="center">
+  <img src="ss/Screenshot 2025-07-02 at 12.21.18 PM.png" width="600" alt="Portfolio Sections"/>
+</div>
 
-## 🎨 Design Features
+## Tech Stack
 
-- **Dark Theme** - Elegant dark color scheme with zinc palette
-- **Glassmorphism** - Modern backdrop blur effects
-- **Smooth Animations** - Staggered entrance animations
-- **Custom Components** - Reusable animated buttons and UI elements
-- **Mobile Responsive** - Seamless experience across all devices
-
-## 🚀 Live Demo
-
-Visit the live site at your deployment URL.
+- Next.js 15.1.3 with App Router
+- React 19.0.0
+- TypeScript 5.6.3
+- Tailwind CSS 3.4.17
+- Framer Motion for animations
+- Lucide React & React Icons
+- Vercel for deployment
 
 ---
 
-*Built with ❤️ by Cole M. Puls*
+**Made by Cole Puls**
