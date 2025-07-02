@@ -12,7 +12,6 @@ import {
   Briefcase,
   GraduationCap,
   User,
-  ChevronDown,
   Download
 } from "lucide-react";
 // Technology icons from react-icons
@@ -43,7 +42,7 @@ import {
   SiShadcnui
 } from "react-icons/si";
 import { TbBrandReactNative } from "react-icons/tb";
-import { FaJava, FaBrain, FaTerminal } from "react-icons/fa";
+import { FaJava, FaTerminal } from "react-icons/fa";
 
 // Enhanced components
 import TypewriterText from "./components/TypewriterText";
@@ -51,11 +50,7 @@ import CursorTrail from "./components/CursorTrail";
 import AnimatedButton from "./components/AnimatedButton";
 import FloatingArrow from "./components/FloatingArrow";
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 16 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.4, ease: "easeOut" }
-};
+
 
 const staggerContainer = {
   animate: {
@@ -245,10 +240,10 @@ export default function Portfolio() {
               className="space-y-8"
             >
               <p className="text-lg text-zinc-300 leading-relaxed">
-                I'm a Computer Science student at Mizzou focused on AI, ML, and software development. I am currently building a mobile sensing app and data pipelines as a Research Assistant.
+                I&apos;m a Computer Science student at Mizzou focused on AI, ML, and software development. I am currently building a mobile sensing app and data pipelines as a Research Assistant.
               </p>
               <p className="text-lg text-zinc-300 leading-relaxed">
-                I'm also a Software Engineering Intern at The Sunrise State, working on a modern news platform using Next.js, Tailwind, Sanity, TypeScript, and Supabase.
+                I&apos;m also a Software Engineering Intern at The Sunrise State, working on a modern news platform using Next.js, Tailwind, Sanity, TypeScript, and Supabase.
               </p>
               <div className="flex flex-wrap gap-6">
                 <div className="flex items-center space-x-3 text-zinc-400">
@@ -670,7 +665,7 @@ export default function Portfolio() {
             className="max-w-4xl mx-auto text-center"
           >
             <p className="text-xl text-zinc-300 mb-12 leading-relaxed">
-              I'm always interested in discussing new opportunities, collaborations, or just connecting with fellow developers. 
+              I&apos;m always interested in discussing new opportunities, collaborations, or just connecting with fellow developers. 
               Feel free to reach out!
             </p>
 

@@ -15,7 +15,7 @@ export default function FloatingArrow({ onClick, className = "" }: FloatingArrow
       transition: {
         duration: 2,
         repeat: Infinity,
-        ease: "easeInOut"
+        ease: "easeInOut" as const
       }
     }
   };

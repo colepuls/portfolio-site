@@ -11,7 +11,7 @@ interface TrailPoint {
 export default function CursorTrail() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [trail, setTrail] = useState<TrailPoint[]>([]);
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number>(0);
   const lastUpdateRef = useRef<number>(0);
 
   useEffect(() => {
