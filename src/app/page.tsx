@@ -167,7 +167,7 @@ export default function Portfolio() {
               </AnimatedButton>
               
               <AnimatedButton
-                href="/Resume_CP.pdf"
+                href="/Resume_Cole_Puls.pdf"
                 download="Cole_Puls_Resume.pdf"
                 variant="outline"
                 delay={0.2}
@@ -678,7 +678,7 @@ export default function Portfolio() {
                 <span className="font-medium">colepuls@me.com</span>
               </a>
               <a
-                href="/Resume_CP.pdf"
+                href="/Resume_Cole_Puls.pdf"
                 download="Cole_Puls_Resume.pdf"
                 className="flex items-center justify-center gap-4 border border-zinc-700 text-zinc-300 hover:bg-zinc-800 hover:border-zinc-600 hover:text-white p-6 rounded-lg transition-all duration-300 hover:scale-105"
               >
