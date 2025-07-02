@@ -22,11 +22,11 @@ A modern, responsive portfolio website showcasing my work as a Software Engineer
 ## Screenshots
 
 <div align="center">
-  <img src="ss/Screenshot 2025-07-02 at 12.20.36 PM.png" width="600" alt="Portfolio Homepage"/>
+  <img src="ss/portfolio-homepage.png" width="600" alt="Portfolio Homepage"/>
 </div>
 
 <div align="center">
-  <img src="ss/Screenshot 2025-07-02 at 12.21.18 PM.png" width="600" alt="Portfolio Sections"/>
+  <img src="ss/portfolio-sections.png" width="600" alt="Portfolio Sections"/>
 </div>
 
 ## Tech Stack
