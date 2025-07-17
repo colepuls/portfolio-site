@@ -7,6 +7,8 @@ A modern, responsive portfolio website showcasing my work as a Software Engineer
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.6.3-blue?style=for-the-badge&logo=typescript)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.4.17-06B6D4?style=for-the-badge&logo=tailwindcss)
 
+**View site:** [https://portfolio-site-nine-lake.vercel.app/](https://portfolio-site-nine-lake.vercel.app/)
+
 ## Features
 
 - Smooth navigation header with scrolling to all sections
