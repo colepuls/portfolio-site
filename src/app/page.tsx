@@ -18,31 +18,27 @@ import {
 import {
   SiPython,
   SiJavascript,
-  SiTypescript,
   SiC,
   SiCplusplus,
-  SiReact,
-  SiNextdotjs,
   SiExpress,
   SiPytorch,
-  SiTailwindcss,
+  SiTensorflow,
   SiGit,
   SiFirebase,
-  SiSupabase,
   SiVercel,
   SiExpo,
-  SiSanity,
   SiNodedotjs,
-  SiFlask,
   SiKotlin,
   SiSwift,
+  SiFlask,
   SiHtml5,
   SiCss3,
-  SiGooglegemini,
-  SiShadcnui
+  SiArduino,
+  SiAutodesk,
+  SiRender
 } from "react-icons/si";
 import { TbBrandReactNative } from "react-icons/tb";
-import { FaJava, FaTerminal } from "react-icons/fa";
+import { FaTerminal, FaRobot } from "react-icons/fa";
 
 // Enhanced components
 import TypewriterText from "./components/TypewriterText";
@@ -67,10 +63,9 @@ export default function Portfolio() {
 
   // Typewriter text options
   const jobTitles = [
-    "Software Engineer",
-    "AI/ML Researcher", 
-    "Full-Stack Developer",
-    "Mobile Engineer"
+    "Robotics",
+    "Embedded Software Engineering",
+    "Machine Learning"
   ];
 
   return (
@@ -146,7 +141,7 @@ export default function Portfolio() {
               </div>
               
               <p className="text-lg sm:text-xl text-zinc-400 max-w-3xl mx-auto leading-relaxed">
-                Specializing in AI/ML, Mobile Development & Full-Stack Engineering
+                Focused on Robotics, Embedded Software Engineering, and Machine Learning
               </p>
             </motion.div>
 
@@ -167,8 +162,8 @@ export default function Portfolio() {
               </AnimatedButton>
               
               <AnimatedButton
-                href="/Resume_Cole_Puls.pdf"
-                download="Cole_Puls_Resume.pdf"
+                href="/RE_Resume.pdf"
+                download="Cole_Puls_RE_Resume.pdf"
                 variant="outline"
                 delay={0.2}
               >
@@ -240,10 +235,10 @@ export default function Portfolio() {
               className="space-y-8"
             >
               <p className="text-lg text-zinc-300 leading-relaxed">
-                I&apos;m a Computer Science student at Mizzou focused on AI, ML, and software development. I am currently building a mobile sensing app and data pipelines as a Research Assistant.
+                I&apos;m a Computer Science student at Mizzou focused on robotics, embedded systems, and AI/ML. I work on autonomy and perception with the Boston Dynamics Spot and build mobile sensing systems for AI research.
               </p>
               <p className="text-lg text-zinc-300 leading-relaxed">
-                I&apos;m also a Software Engineering Intern at The Sunrise State, working on a modern news platform using Next.js, Tailwind, Sanity, TypeScript, and Supabase.
+                Beyond the lab, I contribute to underwater robotics projects, developing embedded control software for real-time sensing and thruster control.
               </p>
               <div className="flex flex-wrap gap-6">
                 <div className="flex items-center space-x-3 text-zinc-400">
@@ -277,11 +272,11 @@ export default function Portfolio() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-white">Concentrations:</h4>
-                  <p className="text-zinc-300">Artificial Intelligence, Software Development, Machine Learning</p>
+                  <p className="text-zinc-300">Robotics Engineering, Embedded Software Development, Machine Learning</p>
                 </div>
                 <div>
                   <h4 className="font-semibold text-white">Relevant Coursework:</h4>
-                  <p className="text-zinc-300">Data Structures & Algorithms, Object-Oriented Design, Neural Networks, Databases</p>
+                  <p className="text-zinc-300">Artificial Intelligence, Software Security, Software Engineering</p>
                 </div>
               </div>
             </motion.div>
@@ -307,7 +302,7 @@ export default function Portfolio() {
           </motion.div>
 
           <div className="space-y-12">
-            {/* Research Assistant */}
+            {/* Autonomous Systems Lab */}
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -318,25 +313,25 @@ export default function Portfolio() {
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
                 <div>
                   <h3 className="text-2xl font-semibold text-white">Undergraduate Research Assistant</h3>
-                  <p className="text-zinc-300 font-medium text-lg">AI/ML and Mobile Sensing Research</p>
+                  <p className="text-zinc-300 font-medium text-lg">Autonomous Systems Lab • Robotics & Autonomy</p>
                 </div>
                 <div className="flex items-center text-zinc-400 text-sm mt-2 sm:mt-0">
                   <Calendar size={16} className="mr-2" />
-                  <span>June 2025 - Present</span>
+                  <span>Aug 2025 - Present</span>
                 </div>
               </div>
               <div className="space-y-3 text-zinc-300 mb-6">
-                <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Built iOS mobile sensing app for collecting passive sensor data (accelerometer, gyroscope, behavior patterns)</p>
-                <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Designed real-time data pipeline for training AI models</p>
-                <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Implemented secure auth and background uploads for longitudinal ML studies</p>
+                <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Working with Boston Dynamics Spot on autonomy and perception research.</p>
+                <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Developing ML algorithms with TensorFlow for navigation, sensing, and decision-making.</p>
+                <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Contributing to SDK/ROS2 integration for advanced robot mobility.</p>
               </div>
               <div className="flex flex-wrap gap-4">
-                <SiKotlin className="text-purple-400 text-3xl" title="Kotlin Multiplatform" />
-                <SiSwift className="text-orange-400 text-3xl" title="SwiftUI" />
+                <FaRobot className="text-zinc-300 text-3xl" title="Robotics" />
+                <SiTensorflow className="text-orange-500 text-3xl" title="TensorFlow" />
               </div>
             </motion.div>
 
-            {/* Software Engineering Intern */}
+            {/* AI/ML and Mobile Sensing Research */}
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -346,25 +341,22 @@ export default function Portfolio() {
             >
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
                 <div>
-                  <h3 className="text-2xl font-semibold text-white">Software Engineering Intern</h3>
-                  <p className="text-zinc-300 font-medium text-lg">The Sunrise State (Remote)</p>
+                  <h3 className="text-2xl font-semibold text-white">Undergraduate Research Assistant</h3>
+                  <p className="text-zinc-300 font-medium text-lg">AI/ML and Mobile Sensing Research</p>
                 </div>
                 <div className="flex items-center text-zinc-400 text-sm mt-2 sm:mt-0">
                   <Calendar size={16} className="mr-2" />
-                  <span>May 2025 - Present</span>
+                  <span>May 2025 - Aug 2025</span>
                 </div>
               </div>
               <div className="space-y-3 text-zinc-300 mb-6">
-                <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Integrated headless CMS using Sanity Studio and Content Lake APIs</p>
-                <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Built newsletter + auth system with Auth.js, Resend, Supabase</p>
-                <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Collaborated using Vercel, GitHub, and Plane.so</p>
+                <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Helped build iOS mobile sensing app for passive data collection (accelerometer, gyroscope, behavior patterns).</p>
+                <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Designed real-time data pipeline for training AI models.</p>
+                <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Implemented secure auth and background uploads for longitudinal ML studies.</p>
               </div>
               <div className="flex flex-wrap gap-4">
-                <SiNextdotjs className="text-white text-3xl" title="Next.js" />
-                                  <SiTailwindcss className="text-cyan-300 text-3xl" title="Tailwind CSS" />
-                <SiSanity className="text-red-500 text-3xl" title="Sanity" />
-                <SiTypescript className="text-blue-500 text-3xl" title="TypeScript" />
-                <SiSupabase className="text-green-400 text-3xl" title="Supabase" />
+                <SiKotlin className="text-purple-400 text-3xl" title="Kotlin Multiplatform" />
+                <SiSwift className="text-orange-400 text-3xl" title="SwiftUI" />
               </div>
             </motion.div>
           </div>
@@ -389,7 +381,42 @@ export default function Portfolio() {
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-10">
-          
+
+            {/* Arduino Autonomous Robot */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-20px" }}
+              className="card p-10"
+            >
+              <div className="flex items-start justify-between mb-6">
+                <h3 className="text-2xl font-semibold text-white">Arduino Autonomous Robot</h3>
+                <a
+                  href="https://github.com/colepuls/FirstAutonomousRobot"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-zinc-400 hover:text-zinc-200 transition-colors duration-300"
+                >
+                  <Github size={24} />
+                </a>
+              </div>
+              <p className="text-zinc-300 mb-6 text-lg leading-relaxed">
+                Designed and programmed a mobile robot with obstacle avoidance using ultrasonic sensing; built full chassis and electronics.
+              </p>
+              <div className="space-y-3 text-zinc-300 mb-8">
+                <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Designed and 3D printed full chassis for a mobile robot.</p>
+                <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Programmed embedded system in C++ to autonomously roam and avoid obstacles.</p>
+                <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Demonstrated end-to-end build: hardware design, electronics, and control software.</p>
+              </div>
+              <div className="flex flex-wrap gap-4 mb-4">
+                <SiArduino className="text-cyan-400 text-3xl" title="Arduino" />
+                <SiAutodesk className="text-orange-400 text-3xl" title="Fusion 360" />
+                <SiCplusplus className="text-blue-500 text-3xl" title="C++" />
+              </div>
+              <p className="text-sm text-zinc-500">Aug 2025 - Sep 2025</p>
+            </motion.div>
+
             {/* Foreman Logging App */}
             <motion.div
               initial={{ opacity: 0 }}
@@ -409,9 +436,7 @@ export default function Portfolio() {
                   <Github size={24} />
                 </a>
               </div>
-              <p className="text-zinc-300 mb-6 text-lg leading-relaxed">
-                Cross-platform mobile app for foremen to log job activities, hours, and photos at Langford Mechanical & Sheet Metal, INC.
-              </p>
+              <p className="text-zinc-300 mb-6 text-lg leading-relaxed">Developed cross-platform mobile app (App Store & Play Store) for foremen to log job activities, hours, and photos.</p>
               <div className="space-y-3 text-zinc-300 mb-8">
                 <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Firebase Auth + Firestore for real-time data sync</p>
                 <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>REST API with secure image upload and automated email delivery</p>
@@ -423,43 +448,7 @@ export default function Portfolio() {
                 <SiFirebase className="text-yellow-400 text-3xl" title="Firebase" />
                 <SiNodedotjs className="text-green-400 text-3xl" title="Node.js" />
               </div>
-              <p className="text-sm text-zinc-500">May 2025 - July 2025</p>
-            </motion.div>
-
-            {/* Dream Keeper */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
-              viewport={{ once: true, margin: "-20px" }}
-              className="card p-10"
-            >
-              <div className="flex items-start justify-between mb-6">
-                <h3 className="text-2xl font-semibold text-white">Dream Keeper</h3>
-                <a
-                  href="https://github.com/colepuls/DK-App"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-zinc-400 hover:text-zinc-200 transition-colors duration-300"
-                >
-                  <Github size={24} />
-                </a>
-              </div>
-              <p className="text-zinc-300 mb-6 text-lg leading-relaxed">
-                AI-enhanced mobile app for dream journaling with Gemini-powered mood analysis and interactive chat features.
-              </p>
-              <div className="space-y-3 text-zinc-300 mb-8">
-                <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Speech-to-text with animated UI and gesture-based navigation</p>
-                <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Backend with Express.js and async storage</p>
-                <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Interactive charts and AI mood analysis</p>
-              </div>
-              <div className="flex flex-wrap gap-4 mb-4">
-                <TbBrandReactNative className="text-cyan-500 text-3xl" title="React Native" />
-                <SiExpo className="text-white text-3xl" title="Expo" />
-                <SiNodedotjs className="text-green-400 text-3xl" title="Node.js" />
-                <SiGooglegemini className="text-blue-400 text-3xl" title="Google Gemini API" />
-              </div>
-              <p className="text-sm text-zinc-500">Mar 2025 - Present</p>
+              <p className="text-sm text-zinc-500">May 2025 - Present</p>
             </motion.div>
 
             {/* Formatly */}
@@ -482,20 +471,20 @@ export default function Portfolio() {
                 </a>
               </div>
               <p className="text-zinc-300 mb-6 text-lg leading-relaxed">
-                Universal image format converter web application supporting 27+ image formats including HEIC, RAW, PSD, EXR, SVG, and PDF with dual-engine conversion system.
+                Universal image format converter web app with dual-engine conversion using Pillow and ImageMagick. Ad-free and fast.
               </p>
               <div className="space-y-3 text-zinc-300 mb-8">
-                <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Dual-engine conversion using Pillow for common formats and ImageMagick for advanced formats</p>
-                <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Drag-and-drop interface with automatic format detection and error handling</p>
-                <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Production-ready deployment with REST API endpoints and 16MB file upload support</p>
+                <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Supports 27+ formats (PNG, JPG, HEIC, RAW, PSD, EXR, SVG, PDF, etc.).</p>
+                <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Drag-and-drop UI with error handling and automatic format detection.</p>
+                <p className="flex items-start"><span className="text-zinc-400 mr-3">•</span>Flask backend with Gunicorn, deployable with Docker or Render.</p>
               </div>
               <div className="flex flex-wrap gap-4 mb-4">
                 <SiPython className="text-blue-400 text-3xl" title="Python" />
                 <SiFlask className="text-white text-3xl" title="Flask" />
                 <SiHtml5 className="text-orange-400 text-3xl" title="HTML" />
                 <SiCss3 className="text-blue-500 text-3xl" title="CSS" />
+                <SiVercel className="text-white text-3xl" title="Vercel" />
               </div>
-              <p className="text-sm text-zinc-500">June 2025</p>
             </motion.div>
 
             {/* Diabetes Risk Classifier */}
@@ -570,12 +559,9 @@ export default function Portfolio() {
               <div className="space-y-6">
                 {[
                   { name: 'Python', icon: SiPython, color: 'text-blue-400' },
-                  { name: 'JavaScript', icon: SiJavascript, color: 'text-yellow-400' },
-                  { name: 'TypeScript', icon: SiTypescript, color: 'text-blue-500' },
-                  { name: 'Java', icon: FaJava, color: 'text-orange-400' },
-                  { name: 'Kotlin', icon: SiKotlin, color: 'text-purple-400' },
                   { name: 'C', icon: SiC, color: 'text-blue-600' },
-                  { name: 'C++', icon: SiCplusplus, color: 'text-blue-500' }
+                  { name: 'C++', icon: SiCplusplus, color: 'text-blue-500' },
+                  { name: 'JavaScript', icon: SiJavascript, color: 'text-yellow-400' }
                 ].map((skill) => (
                   <div key={skill.name} className="flex items-center space-x-4">
                     <skill.icon className={`${skill.color} text-3xl flex-shrink-0`} />
@@ -592,17 +578,13 @@ export default function Portfolio() {
               viewport={{ once: true, margin: "-30px" }}
               className="card p-10 text-center"
             >
-              <h3 className="text-2xl font-semibold text-white mb-8">Frameworks</h3>
+              <h3 className="text-2xl font-semibold text-white mb-8">Frameworks/Libraries</h3>
               <div className="space-y-6">
                 {[
-                  { name: 'React', icon: SiReact, color: 'text-cyan-400' },
-                  { name: 'React Native', icon: TbBrandReactNative, color: 'text-cyan-500' },
-                  { name: 'Next.js', icon: SiNextdotjs, color: 'text-white' },
-                  { name: 'SwiftUI', icon: SiSwift, color: 'text-orange-400' },
-                  { name: 'Express', icon: SiExpress, color: 'text-zinc-400' },
                   { name: 'PyTorch', icon: SiPytorch, color: 'text-orange-400' },
-                  { name: 'Tailwind CSS', icon: SiTailwindcss, color: 'text-cyan-300' },
-                  { name: 'shadcn/ui', icon: SiShadcnui, color: 'text-white' }
+                  { name: 'TensorFlow', icon: SiTensorflow, color: 'text-orange-500' },
+                  { name: 'React Native', icon: TbBrandReactNative, color: 'text-cyan-500' },
+                  { name: 'Express', icon: SiExpress, color: 'text-zinc-400' }
                 ].map((skill) => (
                   <div key={skill.name} className="flex items-center space-x-4">
                     <skill.icon className={`${skill.color} text-3xl flex-shrink-0`} />
@@ -623,11 +605,12 @@ export default function Portfolio() {
               <div className="space-y-6">
                 {[
                   { name: 'Git', icon: SiGit, color: 'text-red-400' },
+                  { name: 'Arduino', icon: SiArduino, color: 'text-cyan-400' },
+                  { name: 'Fusion 360', icon: SiAutodesk, color: 'text-orange-400' },
                   { name: 'Firebase', icon: SiFirebase, color: 'text-yellow-400' },
-                  { name: 'Supabase', icon: SiSupabase, color: 'text-green-400' },
                   { name: 'Vercel', icon: SiVercel, color: 'text-white' },
-                  { name: 'Sanity', icon: SiSanity, color: 'text-red-500' },
-                  { name: 'Expo', icon: SiExpo, color: 'text-white' }
+                  { name: 'Expo', icon: SiExpo, color: 'text-white' },
+                  { name: 'Render', icon: SiRender, color: 'text-blue-400' }
                 ].map((skill) => (
                   <div key={skill.name} className="flex items-center space-x-4">
                     <skill.icon className={`${skill.color} text-3xl flex-shrink-0`} />
@@ -678,8 +661,8 @@ export default function Portfolio() {
                 <span className="font-medium">colepuls@me.com</span>
               </a>
               <a
-                href="/Resume_Cole_Puls.pdf"
-                download="Cole_Puls_Resume.pdf"
+                href="/RE_Resume.pdf"
+                download="Cole_Puls_RE_Resume.pdf"
                 className="flex items-center justify-center gap-4 border border-zinc-700 text-zinc-300 hover:bg-zinc-800 hover:border-zinc-600 hover:text-white p-6 rounded-lg transition-all duration-300 hover:scale-105"
               >
                 <Download size={24} />

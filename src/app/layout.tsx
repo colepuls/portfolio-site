@@ -13,13 +13,25 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Cole M. Puls",
-  description: "Computer Science student at University of Missouri specializing in AI/ML, mobile development, and full-stack engineering.",
-  keywords: ["Cole Puls", "Software Engineer", "Computer Science", "AI/ML", "React Native", "Next.js"],
+  title: "Cole M. Puls — Robotics, Embedded & AI/ML",
+  description: "Computer Science student (Mizzou) focused on robotics & autonomy, embedded systems, and AI/ML.",
+  keywords: [
+    "Cole Puls",
+    "Robotics",
+    "Embedded Systems",
+    "AI/ML",
+    "TensorFlow",
+    "PyTorch",
+    "React Native",
+    "Express",
+    "Arduino",
+    "Fusion 360",
+    "ROS2"
+  ],
   authors: [{ name: "Cole M. Puls" }],
   openGraph: {
-    title: "Cole M. Puls",
-    description: "Computer Science student at University of Missouri specializing in AI/ML, mobile development, and full-stack engineering.",
+    title: "Cole M. Puls — Robotics, Embedded & AI/ML",
+    description: "Computer Science student (Mizzou) focused on robotics & autonomy, embedded systems, and AI/ML.",
     type: "website",
   },
 };
