@@ -1,6 +1,6 @@
 # Portfolio Website
 
-A modern, responsive portfolio website showcasing my work as a Software Engineer, AI/ML Researcher, and Full-Stack Developer.
+A modern, responsive portfolio website showcasing my work as a Robotics/Embedded Software Engineer, Machine Learning Enginner, and App Dev.
 
 ![Next.js](https://img.shields.io/badge/Next.js-15.1.3-black?style=for-the-badge&logo=next.js)
 ![React](https://img.shields.io/badge/React-19.0.0-blue?style=for-the-badge&logo=react)
